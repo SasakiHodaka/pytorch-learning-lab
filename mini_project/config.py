@@ -1,6 +1,7 @@
 """Typed configuration for the capstone project."""
 
 from dataclasses import dataclass
+
 import torch
 
 

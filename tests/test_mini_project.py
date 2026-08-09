@@ -1,8 +1,8 @@
 """Focused tests for the capstone project's public behavior."""
 
+import unittest
 from pathlib import Path
 from tempfile import TemporaryDirectory
-import unittest
 
 import torch
 

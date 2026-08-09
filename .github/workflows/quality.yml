@@ -1,0 +1,48 @@
+name: Curriculum quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install -r requirements-dev.txt
+
+      - name: Check formatting and lint
+        run: python -m ruff check .
+
+      - name: Check selected type-annotated modules
+        run: python -m mypy mini_project practice/solutions.py tools/run_all_lessons.py
+
+      - name: Run completed lessons
+        run: python tools/run_all_lessons.py
+
+      - name: Run reference and capstone tests
+        run: python -m unittest tests.test_solutions tests.test_mini_project -v
+
+      - name: Compile every Python file
+        run: python -m compileall -q lessons mini_project practice tools tests

@@ -63,6 +63,18 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
+教材の検証や開発を行う場合は、Ruffとmypyを含む開発用依存関係を導入します。
+
+```powershell
+python -m pip install -r requirements-dev.txt
+python -m ruff check .
+python -m mypy mini_project practice/solutions.py tools/run_all_lessons.py
+python tools/run_all_lessons.py
+python -m unittest tests.test_solutions tests.test_mini_project -v
+```
+
+同じ検証はGitHub ActionsでもpushとPull Requestごとに自動実行されます。
+
 ## Official resources
 
 - [PyTorch documentation](https://docs.pytorch.org/docs/stable/index.html)
