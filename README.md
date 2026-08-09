@@ -33,6 +33,9 @@ PyTorch本体へ修正と回帰テストを提出する
 
 詳細なフェーズ、成果物、完了条件は[ROADMAP.md](ROADMAP.md)を参照してください。
 
+教材コードは[`lessons/`](lessons/)にあります。最初の教材は
+[`lessons/01_tensor_basics.py`](lessons/01_tensor_basics.py)です。
+
 ## Repository policy
 
 - Lessonは番号順に追加し、一つのテーマに集中させる。

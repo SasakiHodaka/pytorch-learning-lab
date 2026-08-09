@@ -74,10 +74,10 @@ PyTorch本体の実装とテストを読む
 
 予定Lesson:
 
-1. `01_tensor_basics.py` — 生成、shape、dtype、device
-2. `02_tensor_operations.py` — indexing、reshape、broadcasting、集約
-3. `03_matrix_operations.py` — dot product、matrix multiplication、次元の整合性
-4. `04_numpy_interop.py` — NumPy変換、copy、共有メモリ
+1. `lessons/01_tensor_basics.py` — 生成、shape、dtype、device
+2. `lessons/02_tensor_operations.py` — indexing、reshape、broadcasting、集約
+3. `lessons/03_matrix_operations.py` — dot product、matrix multiplication、次元の整合性
+4. `lessons/04_numpy_interop.py` — NumPy変換、copy、共有メモリ
 
 完了条件:
 
@@ -336,9 +336,11 @@ pytorch-learning-lab/
 ├─ README.md
 ├─ ROADMAP.md
 ├─ requirements.txt
-├─ 01_tensor_basics.py
-├─ 02_tensor_operations.py
-├─ ...
+├─ lessons/
+│  ├─ README.md
+│  ├─ 01_tensor_basics.py
+│  ├─ 02_tensor_operations.py
+│  └─ ...
 ├─ 07_pytorch_internals/
 ├─ 08_testing/
 ├─ 09_source_reading/
@@ -353,7 +355,7 @@ pytorch-learning-lab/
 
 ## 6. Immediate next step
 
-Phase 0の計画コミット後、`01_tensor_basics.py`を新しいコミットで作成します。
+Phase 0の計画コミット後、`lessons/01_tensor_basics.py`を新しいコミットで作成します。
 Lesson 01ではTensor生成、shape、dtype、deviceだけに集中し、理解確認後に演算へ進みます。
 
 ## 7. Official references
