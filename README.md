@@ -28,13 +28,23 @@ PyTorch本体へ修正と回帰テストを提出する
 | リポジトリ作成 | 完了 |
 | CPU版PyTorch環境定義 | 完了 |
 | 学習・貢献ロードマップ | 完了 |
-| Lesson 01: Tensor基礎 | 次に着手 |
+| 完成版カリキュラム | 完了 |
+| 学習開始地点 | Chapter 00: Python Foundations |
 | PyTorch本体への貢献 | 未着手 |
 
 詳細なフェーズ、成果物、完了条件は[ROADMAP.md](ROADMAP.md)を参照してください。
 
-教材コードは[`lessons/`](lessons/)にあります。最初の教材は
-[`lessons/01_tensor_basics.py`](lessons/01_tensor_basics.py)です。
+教材コードは[`lessons/`](lessons/)にあります。Python未経験者は
+[`lessons/00_python_foundations/`](lessons/00_python_foundations/)から始めます。
+練習問題と模範解答は[`practice/`](practice/)、理解度は
+[`PROGRESS.md`](PROGRESS.md)で確認できます。
+
+完成済み教材の一括検証:
+
+```powershell
+python tools/run_all_lessons.py
+python -m unittest tests/test_solutions.py -v
+```
 
 ## Repository policy
 

@@ -74,10 +74,10 @@ PyTorch本体の実装とテストを読む
 
 予定Lesson:
 
-1. `lessons/01_tensor_basics.py` — 生成、shape、dtype、device
-2. `lessons/02_tensor_operations.py` — indexing、reshape、broadcasting、集約
-3. `lessons/03_matrix_operations.py` — dot product、matrix multiplication、次元の整合性
-4. `lessons/04_numpy_interop.py` — NumPy変換、copy、共有メモリ
+1. `lessons/01_tensor_fundamentals/01_create_and_inspect.py` — 生成、shape、dtype、device
+2. `lessons/01_tensor_fundamentals/02_index_and_reshape.py` — indexing、reshape
+3. `lessons/01_tensor_fundamentals/03_operations_and_broadcasting.py` — 演算とbroadcasting
+4. `lessons/01_tensor_fundamentals/04_numpy_and_devices.py` — NumPy、copy、device
 
 完了条件:
 
@@ -327,9 +327,9 @@ PR提出前チェック:
 READMEには現在地だけを表示し、詳細な学習記録は各Lessonまたはnoteへ残します。
 ロードマップを変更した場合は、変更理由をコミットメッセージまたはPR本文に残します。
 
-## 5. Planned repository structure
+## 5. Repository structure
 
-必要になった時点で段階的に作成します。
+教材本編は完成済みです。学習記録とOSS調査記録は進捗に応じて追加します。
 
 ```text
 pytorch-learning-lab/
@@ -337,26 +337,27 @@ pytorch-learning-lab/
 ├─ ROADMAP.md
 ├─ requirements.txt
 ├─ lessons/
-│  ├─ README.md
-│  ├─ 01_tensor_basics.py
-│  ├─ 02_tensor_operations.py
-│  └─ ...
-├─ 07_pytorch_internals/
-├─ 08_testing/
-├─ 09_source_reading/
-├─ 10_oss_practice/
-│  ├─ issue_analysis/
-│  ├─ reproductions/
-│  └─ notes/
-└─ tests/
+│  ├─ 00_python_foundations/
+│  ├─ 01_tensor_fundamentals/
+│  ├─ 02_autograd_and_optimization/
+│  ├─ 03_neural_networks/
+│  ├─ 04_data_and_training/
+│  ├─ 05_engineering_practice/
+│  ├─ 06_advanced_development/
+│  └─ 07_internals_and_oss/
+├─ mini_project/
+├─ practice/
+├─ tests/
+├─ tools/
+└─ PROGRESS.md
 ```
 
-空のディレクトリや未着手Lessonは先に作らず、学習成果ができた時点で追加します。
+空のディレクトリは作らず、実際の学習記録やIssue調査結果だけを追加します。
 
-## 6. Immediate next step
+## 6. Immediate next step for the learner
 
-Phase 0の計画コミット後、`lessons/01_tensor_basics.py`を新しいコミットで作成します。
-Lesson 01ではTensor生成、shape、dtype、deviceだけに集中し、理解確認後に演算へ進みます。
+`lessons/00_python_foundations/01_values_and_variables.py`から開始します。Chapterごとの
+完了条件を満たしたら`PROGRESS.md`を更新し、次のChapterへ進みます。
 
 ## 7. Official references
 
