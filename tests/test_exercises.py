@@ -11,6 +11,10 @@ class ExerciseTests(unittest.TestCase):
     def test_python_mean(self) -> None:
         self.assertEqual(exercises.python_mean([2.0, 4.0]), 3.0)
 
+    def test_python_mean_rejects_empty_list(self) -> None:
+        with self.assertRaises(ValueError):
+            exercises.python_mean([])
+
     def test_normalize_rows(self) -> None:
         actual = exercises.normalize_rows(torch.tensor([[1.0, 1.0], [1.0, 3.0]]))
         torch.testing.assert_close(actual, torch.tensor([[0.5, 0.5], [0.25, 0.75]]))
