@@ -1,62 +1,53 @@
 # Learning Progress
 
-教材の完成状態ではなく、自分の理解度を記録するためのチェックリストです。
-コードを一度実行しただけでは完了にせず、自分の言葉で説明し、確認問題を解けたら
-チェックしてください。
+実行回数ではなく、コードを読解・変更・実装できる度合いを記録します。
 
-## Chapter 00: Python Foundations
+## Scale
 
-- [ ] 値、変数、基本型、演算を説明できる。
-- [ ] 条件分岐とloopを書ける。
-- [ ] 引数と戻り値を持つ関数を書ける。
-- [ ] list、tuple、dictを使い分けられる。
-- [ ] classとinstanceを説明できる。
-- [ ] tracebackを読み、例外を処理できる。
+- `0`: 未理解または未着手
+- `1`: 補助があれば説明できる
+- `2`: 自力で読解し、小さな変更を検証できる
+- `3`: edge caseを発見し、テストと実装を追加できる
 
-## Chapter 01: Tensor Fundamentals
+Lesson完了はLevel 2以上です。各行のEvidenceには、説明ノート、テスト、コミットなど
+第三者が確認できる根拠を記入します。
 
-- [ ] shape、dtype、device、ndimを説明できる。
-- [ ] indexing、reshape、transposeを使える。
-- [ ] 要素演算、行列積、broadcastingを区別できる。
-- [ ] NumPyとの共有メモリとcopyを説明できる。
+## Progress table
 
-## Chapter 02: Autograd and Optimization
+| Chapter | Read | Change | Build | Evidence | Status |
+| --- | ---: | ---: | ---: | --- | --- |
+| 00 Python Foundations | 0 | 0 | 0 | — | Not started |
+| 01 Tensor Fundamentals | 0 | 0 | 0 | — | Not started |
+| 02 Autograd and Optimization | 0 | 0 | 0 | — | Not started |
+| 03 Neural Networks | 0 | 0 | 0 | — | Not started |
+| 04 Data and Training | 0 | 0 | 0 | — | Not started |
+| 05 Engineering Practice | 0 | 0 | 0 | — | Not started |
+| 06 Advanced Development | 0 | 0 | 0 | — | Not started |
+| 07 Internals and OSS | 0 | 0 | 0 | — | Not started |
 
-- [ ] 計算グラフとgradientを手計算に結び付けられる。
-- [ ] gradient蓄積とzeroingを説明できる。
-- [ ] forward、loss、backward、updateを実装できる。
+## Session log template
 
-## Chapter 03: Neural Networks
+```markdown
+### YYYY-MM-DD — Lesson
 
-- [ ] `nn.Module`、`__init__`、`forward`を説明できる。
-- [ ] logits、probability、prediction、target、lossを区別できる。
-- [ ] 小さな分類モデルを作り、学習できる。
+- Reading target:
+- Responsibility:
+- Input/output/data flow:
+- Contract inferred from tests:
+- Change prediction:
+- Observed result:
+- Implementation decision:
+- Remaining question:
+- Verification command:
+- Commit:
+```
 
-## Chapter 04: Data and Training
+## Program completion
 
-- [ ] Dataset、DataLoader、sample、batchを説明できる。
-- [ ] train loopとevaluation loopを分離できる。
-- [ ] modelを保存・復元し、同じ予測を確認できる。
-- [ ] seed、device、再現性の制約を説明できる。
-
-## Chapter 05: Engineering Practice
-
-- [ ] Tensorの正常系、境界値、異常系テストを書ける。
-- [ ] 入力shapeを検証し、役立つerrorを返せる。
-- [ ] 独自Datasetを書ける。
-- [ ] inference modeとprofilerを使える。
-
-## Chapter 06: Advanced Development
-
-- [ ] CNNでimage batchのshapeを追跡できる。
-- [ ] validationとclass別metricを使える。
-- [ ] schedulerとgradient clippingの目的を説明できる。
-- [ ] capstone projectのdata、model、engine、CLIを変更できる。
-
-## Chapter 07: Internals and OSS
-
-- [ ] 公開APIから実装fileと公式testを探せる。
-- [ ] custom autogradのbackwardをgradcheckできる。
-- [ ] Issueを最小再現し、原因仮説を記録できる。
-- [ ] 回帰testを伴う小さなPRを準備できる。
-- [ ] reviewへ根拠を持って対応できる。
+- [ ] 初見のPython関数を、呼び出し元とテストを含めて説明できる。
+- [ ] 初見のPyTorchコードで、主要Tensorのshapeを追跡できる。
+- [ ] failureから原因仮説を立て、調査範囲を絞れる。
+- [ ] 既存設計を保ちながら、小さな機能変更とテストを追加できる。
+- [ ] 複数moduleからなる学習pipelineを読解・変更できる。
+- [ ] PyTorch本体のAPIから実装と公式テストを探せる。
+- [ ] 最小再現、回帰テスト、修正を含むPRを準備できる。
