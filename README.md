@@ -35,7 +35,12 @@ PyTorch本体へ修正と回帰テストを提出する
 詳細なフェーズ、成果物、完了条件は[ROADMAP.md](ROADMAP.md)を参照してください。
 
 読解を最優先にした教育方法と評価基準は[`lessons/README.md`](lessons/README.md)に
-まとめています。教材コードは[`lessons/`](lessons/)にあります。Python未経験者は
+まとめています。
+
+ガクチカの素材と今後の開発に再利用する知見は
+[PROJECT_NOTES.md](PROJECT_NOTES.md)へ記録します。
+
+教材コードは[`lessons/`](lessons/)にあります。Python未経験者は
 [`lessons/00_python_foundations/`](lessons/00_python_foundations/)から始めます。
 練習問題と模範解答は[`practice/`](practice/)、理解度は
 [`PROGRESS.md`](PROGRESS.md)で確認できます。
