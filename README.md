@@ -30,7 +30,12 @@ PyTorch本体へ修正と回帰テストを提出する
 | 学習・貢献ロードマップ | 完了 |
 | 完成版カリキュラム | 完了 |
 | 学習開始地点 | Chapter 00: Python Foundations |
-| PyTorch本体への貢献 | 未着手 |
+| PyTorch本体への貢献 | Issue調査・ローカル試作 |
+
+短期集中の実行記録と次の作業は
+[CONTRIBUTION_SPRINT.md](CONTRIBUTION_SPRINT.md)にまとめています。
+本家のAIポリシー、環境監査、Issue監視手順は
+[CONTRIBUTION_RESEARCH.md](CONTRIBUTION_RESEARCH.md)を参照してください。
 
 詳細なフェーズ、成果物、完了条件は[ROADMAP.md](ROADMAP.md)を参照してください。
 
@@ -80,6 +85,17 @@ python -m unittest tests.test_solutions tests.test_mini_project -v
 ```
 
 同じ検証はGitHub ActionsでもpushとPull Requestごとに自動実行されます。
+
+PyTorch本体のWindows CPU開発環境は、別worktree `..\pytorch-dev` に用意しています。
+初回buildの再開とsmoke testは次のコマンドです。
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\build_pytorch_cpu.ps1
+powershell -ExecutionPolicy Bypass -File tools\verify_pytorch_dev.ps1
+```
+
+詳しい環境状態とIssue監査結果は
+[`CONTRIBUTION_RESEARCH.md`](CONTRIBUTION_RESEARCH.md)を参照してください。
 
 ## Official resources
 
