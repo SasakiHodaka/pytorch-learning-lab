@@ -16,7 +16,7 @@
 ## 2026-09-02 sprint
 
 - [x] `practice/exercises.py` のChapter 00–04演習を実装
-- [x] 学習Repoの15 tests、Ruff、mypyを通過
+- [x] 学習Repoの12 tests、Ruff、mypyを通過
 - [x] 29 Lessonを一括実行
 - [x] PyTorch本体を浅いcloneとして `C:\Users\sasakihodaka\pytorch` に取得
 - [x] 最新のContributionルールを確認
@@ -26,23 +26,26 @@
 - [x] GitHub CLIを`SasakiHodaka`として認証
 - [x] `actionable` / `good first issue` / `better-engineering`を横断調査
 - [x] 各候補のIssueコメントとOpen/Closed PRを確認
-- [ ] PyTorch本体のビルド環境を構築
+- [x] PyTorch本体のCPU-onlyビルド環境を構築
+- [x] clean worktree、専用venv、開発dependency、MKL、全submoduleを準備
+- [ ] CPU-only初回buildを差分から完走
 - [ ] 本家の対象テストを実行
 - [ ] 未競合のactionable Issueを確保
 - [ ] 回帰テスト付きのPRを提出
 
 ## Current constraints
 
-- PyTorch source checkoutは未ビルドで、`torch/version.py`と対応するC拡張がない。
+- CPU-only初回buildは580 object生成後に時間上限で中断。`pytorch-dev\build`から再開可能。
 - Issue #195165の`ContextVarVariable`は別Contributorが取得済み。試作を提出しない。
 - 調査した有望候補には既存のOpen PRまたは作業宣言があり、重複PRを避けた。
 
 ## Next burst
 
-1. 新着の`actionable` / `good first issue`を確認し、コメントと関連PRを先に調べる。
-2. 競合がなければIssueに対象を明記する。
-3. 必要な範囲だけPyTorch開発環境を構築し、修正前テストを再現する。
-4. 最小修正、対象テスト、lint、self-reviewまで一気に実施する。
+1. `tools\build_pytorch_cpu.ps1`で初回buildを差分から完走する。
+2. `tools\verify_pytorch_dev.ps1`でimportとCPU Tensor演算を確認する。
+3. 新着の`actionable` / `good first issue`を確認し、コメントと関連PRを先に調べる。
+4. 競合がなければ、本人確認後にIssueへ対象を明記する。
+5. 最小修正、対象テスト、Spin lint、self-reviewまで一気に実施する。
 
 ## Candidate audit on 2026-09-02
 

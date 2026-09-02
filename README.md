@@ -96,6 +96,7 @@ powershell -ExecutionPolicy Bypass -File tools\verify_pytorch_dev.ps1
 
 詳しい環境状態とIssue監査結果は
 [`CONTRIBUTION_RESEARCH.md`](CONTRIBUTION_RESEARCH.md)を参照してください。
+ログアウト後は[`RESUME_HERE.md`](RESUME_HERE.md)から再開できます。
 
 ## Official resources
 
