@@ -1,7 +1,9 @@
 param(
     [ValidateRange(1, 100)]
     [int]$MaxIssues = 25,
-    [string]$Repository = "pytorch/pytorch"
+    [string]$Repository = "pytorch/pytorch",
+    [ValidateNotNullOrEmpty()]
+    [string]$Label = "actionable"
 )
 
 $ErrorActionPreference = "Stop"
@@ -10,20 +12,18 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
     throw "GitHub CLI (gh) is required."
 }
 
-gh auth status 2>$null | Out-Null
+cmd /c "gh auth status >nul 2>nul"
 if ($LASTEXITCODE -ne 0) {
     throw "Authenticate GitHub CLI with 'gh auth login' first."
 }
 
-$query = "repo:$Repository is:issue is:open label:actionable"
-$issuesJson = gh api --method GET search/issues `
-    -f "q=$query" `
-    -f sort=created `
-    -f order=desc `
-    -f "per_page=$MaxIssues"
+$query = "repo:$Repository is:issue is:open label:`"$Label`""
+$encodedQuery = [Uri]::EscapeDataString($query)
+$searchEndpoint = "search/issues?q=$encodedQuery&sort=created&order=desc&per_page=$MaxIssues"
+$issuesJson = gh api --method GET $searchEndpoint
 
 if ($LASTEXITCODE -ne 0) {
-    throw "Failed to query actionable issues."
+    throw "Failed to query issues labeled '$Label'."
 }
 
 $issues = ($issuesJson | ConvertFrom-Json).items

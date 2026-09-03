@@ -49,6 +49,31 @@ PyTorch Learning Labでの経験を、就職活動のガクチカと今後の開
 
 作業や学習の区切りごとに、次のテンプレートを複製して記録します。
 
+### 2026-09-03: PyTorch本体のCPU-only初回ビルド
+
+- 状況・課題: Windows向け初回ビルドが途中で中断され、再開スクリプトにもPowerShell固有の引数・引用符問題があった。
+- 目標: clean worktreeのビルドを完走し、source checkoutからCPU演算できることを確認する。
+- 自分の役割: ビルド監視、並列度調整、補助スクリプト修正、実行結果の検証。
+- 選んだ行動と理由: 既存成果物をNinjaで再利用し、出力をログへ退避して8並列で処理した。
+- 発生した問題: 既定引数内の`$PSScriptRoot`と、Windows PowerShell経由の`python -c`で検証が失敗した。
+- 問題への対応: パス解決をスクリプト本体へ移し、検証コードをPythonの標準入力へ渡した。
+- 結果: editable wheelのbuild/installに成功し、`torch 2.15.0a0+git580b06a`のimportとCPU Tensor演算`[2.0, 4.0]`を確認した。
+- 根拠: `tools/build_pytorch_cpu.ps1`、`tools/verify_pytorch_dev.ps1`
+- 学んだこと: 長時間ビルドでは、差分再開、適切な並列度、ログ転送量の管理が所要時間と調査性に影響する。
+- 次回に再利用する知見: PowerShellから複数行Pythonを実行するときは、`-c`の引用符依存を避けて標準入力を使う。
+- 次の行動: 未競合のactionable Issueを監査する。
+
+### 2026-09-03: actionable / good first issue再監査
+
+- 状況・課題: OpenかつtimelineにOpen PRがないIssueにも、コメント内の既存PRやmainで解消済みのものが含まれていた。
+- 目標: 重複作業を避け、CPU-only環境で再現可能な小規模Issueを見つける。
+- 自分の役割: 最新100件のactionableと25件のgood first issueを照合し、本文、コメント、assignee、現行mainの挙動を確認した。
+- 発生した問題: timelineのcross-referenceだけでは、コメント本文に書かれたPR番号を検出できなかった。
+- 問題への対応: 候補ごとにコメントを読み、source buildで最小再現して未解決か確認した。
+- 結果: 調査候補は既存PR、作業宣言、仕様議論、またはmainで解消済みだったため、今回は対象を確保しなかった。
+- 学んだこと: Open状態と自動検出結果だけで着手せず、コメントと最新コードの再現確認まで行って競合を判断する必要がある。
+- 次の行動: 新着Issueを定期監査し、未競合候補が出た時点で本人確認後に作業宣言する。
+
 ### 2026-08-12: 学習方法の見直し
 
 - 状況・課題: 細かな確認問題だけでは、コード全体の流れと各処理の関係をつかみにくい。

@@ -1,11 +1,15 @@
 [CmdletBinding()]
 param(
-    [string]$PyTorchRoot = (Join-Path $PSScriptRoot "..\..\pytorch-dev"),
+    [string]$PyTorchRoot,
     [ValidateRange(1, 8)]
     [int]$Jobs = 2
 )
 
 $ErrorActionPreference = "Stop"
+
+if (-not $PyTorchRoot) {
+    $PyTorchRoot = Join-Path $PSScriptRoot "..\..\pytorch-dev"
+}
 
 $PyTorchRoot = (Resolve-Path $PyTorchRoot).Path
 $Python = Join-Path $PyTorchRoot ".venv\Scripts\python.exe"

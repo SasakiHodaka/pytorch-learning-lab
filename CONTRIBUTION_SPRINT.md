@@ -28,24 +28,25 @@
 - [x] 各候補のIssueコメントとOpen/Closed PRを確認
 - [x] PyTorch本体のCPU-onlyビルド環境を構築
 - [x] clean worktree、専用venv、開発dependency、MKL、全submoduleを準備
-- [ ] CPU-only初回buildを差分から完走
-- [ ] 本家の対象テストを実行
+- [x] CPU-only初回buildを差分から完走
+- [x] source checkoutのimportとCPU Tensor smoke testを実行
+- [ ] 選定したIssueの本家対象テストを実行
 - [ ] 未競合のactionable Issueを確保
 - [ ] 回帰テスト付きのPRを提出
 
 ## Current constraints
 
-- CPU-only初回buildは580 object生成後に時間上限で中断。`pytorch-dev\build`から再開可能。
+- CPU-only初回buildとeditable installは完了。8並列で完走し、CPU Tensor smoke testも成功。
+- GitHub CLIは`SasakiHodaka`として再認証済み。
 - Issue #195165の`ContextVarVariable`は別Contributorが取得済み。試作を提出しない。
 - 調査した有望候補には既存のOpen PRまたは作業宣言があり、重複PRを避けた。
 
 ## Next burst
 
-1. `tools\build_pytorch_cpu.ps1`で初回buildを差分から完走する。
-2. `tools\verify_pytorch_dev.ps1`でimportとCPU Tensor演算を確認する。
-3. 新着の`actionable` / `good first issue`を確認し、コメントと関連PRを先に調べる。
-4. 競合がなければ、本人確認後にIssueへ対象を明記する。
-5. 最小修正、対象テスト、Spin lint、self-reviewまで一気に実施する。
+1. 新着の`actionable` / `good first issue`を確認し、コメントと関連PRを先に調べる。
+2. timelineにOpen PRがなくても、コメント内のPR番号と現行mainでの再現結果を確認する。
+3. 競合がなければ、本人確認後にIssueへ対象を明記する。
+4. 最小修正、対象テスト、Spin lint、self-reviewまで一気に実施する。
 
 ## Candidate audit on 2026-09-02
 
@@ -55,3 +56,13 @@
 - `#170798`, `#174177`, `#174183`, `#185647`: Open PRあり。
 - `#188398`, `#158895`, `#116203`, `#177265`: Open PRあり。
 - `#183036`: 最新mainの共有docstringは既に特定Optimizerに依存しない例へ更新済み。
+
+## Candidate audit on 2026-09-03
+
+- 最新100件の`actionable`と最新25件の`good first issue`を監査。
+- `#174984`, `#155981`, `#166853`, `#155671`: コメント内に既存修正PRあり。
+- `#159740`: 現行checkoutは既に専用のpinned-memoryエラーを返す。
+- `#153327`: 現行checkoutは巨大な`upscale_factor`をoverflowとして検出済み。
+- `#157547`, `#156075`, `#154226`, `#154077`: assignee、既存PR、作業宣言、または仕様議論あり。
+- timelineにOpen PRがないだけでは未競合と断定できないため、コメントと再現確認を必須とする。
+- 今回は重複なしの小規模なCPU候補を確保できなかった。
