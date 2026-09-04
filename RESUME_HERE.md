@@ -1,6 +1,6 @@
 # Resume here
 
-最終更新: 2026-09-03
+最終更新: 2026-09-04
 
 PCやCodexからログアウトした後は、PowerShellで次を実行する。
 
@@ -14,10 +14,11 @@ git log -2 --oneline
 
 - 学習・調査記録はGitへコミット済み。
 - PyTorchのclean開発worktreeは`C:\Users\sasakihodaka\pytorch-dev`。
-- branchは`env-prep`、基点は`580b06aeb5aa20cb5b78e79751c7467e7a845d94`。
+- branchは`env-prep`、基点は`b45272bf18dd1448d0f7d4a351ec96c0e1f7ed90`。
 - Python 3.12.7 venv、開発dependency、MKL、Visual C++、全submoduleを準備済み。
-- CPU-only初回buildとeditable installが完了済み。
-- `torch 2.15.0a0+git580b06a`のimportとCPU Tensor演算を確認済み。
+- CPU-only buildとeditable installが完了済み。
+- `torch 2.15.0a0+gitb45272b`のimportとCPU Tensor演算を確認済み。
+- 2026-09-04に`actionable`と`good first issue`の新着25件ずつを再監査済み。小規模なCPU候補は既存PRまたは作業宣言と競合していた。
 - `C:\Users\sasakihodaka\pytorch`の`issue-195165-contextvar`には未コミットの学習用patchがある。
 - Issue #195165は他Contributorと競合するため、そのpatchを本家へ提出しない。
 
